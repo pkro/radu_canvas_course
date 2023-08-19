@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="snowman.js"></script>
+</head>
+<body>
+<canvas id="myCanvas"
+        style="background-color: blue"
+        width="400" height="400">
+</canvas>
+
+<script>
+    const el = document.getElementById('myCanvas');
+    const ctx = el.getContext('2d');
+
+    const minX = 170;
+    const rangeX = 60;
+    let p = 0;
+
+    el.addEventListener('pointermove', (info)=> {
+        const {offsetY, offsetX} = info;
+        p = offsetX/el.width;
+    })
+
+
+    const img = new Image();
+    img.src = 'https://picsum.photos/id/237/200/50';
+    img.onload = animate;
+
+    function animate() {
+        ctx.clearRect(0, 0, el.width, el.height);
+        drawSnowman(200, 640, 160, 0.7, minX, rangeX, p);
+        ctx.drawImage(img, 100, 320, 200, 50);
+        ctx.textAlign="center;";
+            ctx.textBaseline="middle";
+            ctx.font="40px Comic Sans MS"
+        ctx.fillText("Merry", 200,310)
+
+
+
+        requestAnimationFrame(animate);
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>

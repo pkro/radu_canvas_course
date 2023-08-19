@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas"
+        style="background-color: silver"
+        width="400" height="400">
+</canvas>
+
+<script>
+    const el = document.getElementById('myCanvas');
+    const ctx = el.getContext('2d');
+
+    const minRad = 10;
+    const rangeRad = 20;
+    let p = 0;
+
+    let x = 200;
+    let y = 200;
+
+    ctx.strokeStyle = 'black';
+
+    animate();
+    function animate() {
+        p = p + 0.02;
+
+        if(p>1) p = 0;
+        ctx.clearRect(0, 0, el.width, el.height);
+
+
+
+
+        const rad = minRad + rangeRad * p;
+
+        ctx.beginPath()
+        ctx.arc(x, y, rad, 0, Math.PI * 2);
+
+        ctx.stroke();
+        requestAnimationFrame(animate);
+    }
+
+    el.addEventListener('pointermove', (info) => {
+        x = info.offsetX;
+        y = info.offsetY;
+    });
+
+
+
+</script>
+</body>
+</html>

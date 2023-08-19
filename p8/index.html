@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas"
+        style="background-color: silver; border: solid"
+        width="400" height="400">
+</canvas>
+
+<script>
+    const el = document.getElementById('myCanvas');
+    const ctx = el.getContext('2d');
+    const w = el.width, h = el.height;
+
+    const maxY = 80;
+    const rangeY = 90;
+    let p = 0;
+
+
+    const img = new Image();
+    img.src = 'https://picsum.photos/id/237/200/200';
+    img.onload = animate;
+
+    function animate() {
+        p = p + 0.02;
+        if(p>1) p=0;
+        const y = maxY - Math.abs(Math.sin(p * Math.PI)) * rangeY;
+        ctx.clearRect(0, 0, w, h);
+        ctx.drawImage(img, 100, y, 200, 200);
+        ctx.font = "30px Arial";
+        ctx.textBaseline = "center"
+        ctx.textAlign = "center";
+        ctx.fillText("html canvas", 200, 300)
+        requestAnimationFrame(animate);
+    }
+
+
+</script>
+</body>
+</html>

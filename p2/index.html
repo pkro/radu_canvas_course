@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas"
+        style="background-color: yellow"
+        width="400" height="400">
+</canvas>
+
+<script>
+    const el = document.getElementById('myCanvas');
+    const ctx = el.getContext('2d');
+
+    ctx.beginPath(); // start a new path, not strictly necessary for the very first drawing
+
+    ctx.moveTo(100, 300); // 0 / 0 point is on top left, unlike in mathematical coord systems
+    ctx.lineTo(300, 300);
+    ctx.lineTo(300, 100);
+    ctx.lineTo(200, 50);
+    ctx.lineTo(100, 100);
+    //ctx.lineTo(100, 300); // same as:
+    ctx.closePath(); // draws a line from the last point to the starting point of the current path
+    ctx.stroke(); // actually does the drawing
+
+    // start a new path, otherwise the next drawing will be connected to the last point drawn here
+    ctx.beginPath();
+
+    // draw a circle
+    ctx.arc(
+        200, // center X
+        200,  // center >
+        50, // radius
+        0, // startAngle in radians, measured on the X axis, start drawing here.
+        2*Math.PI // endAngle = end here (2 * PI = 2*3.14 = full circle, 3.14 = half circle
+    )
+    ctx.stroke();
+
+    // quick way
+
+    ctx.beginPath();
+    ctx.rect(
+        100, // top left X
+        300, // top left >
+        200, // width
+        20 // height
+    );
+    ctx.stroke();
+
+</script>
+</body>
+</html>

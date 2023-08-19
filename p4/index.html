@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas"
+        style="background-color: blue"
+        width="400" height="400">
+</canvas>
+
+<script>
+    const el = document.getElementById('myCanvas');
+    const ctx = el.getContext('2d');
+
+    let x = 0, y = 0, w = el.width, h = el.height, offset=10;
+
+    for (let i = 1; i <= w/offset/2; i++) {
+        ctx.beginPath();
+        ctx.rect(x+i*offset, y+i*offset, w-2*i*offset, h-2*i*offset);
+        ctx.fillStyle = i % 2 === 0 ? 'blue' : 'white';
+        ctx.fill();
+    }
+
+
+</script>
+</body>
+</html>

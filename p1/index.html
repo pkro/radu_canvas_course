@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" xmlns:link="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+<h1>hey</h1>
+<img src="https://picsum.photos/200/200"/>
+<canvas width="200" height="200"></canvas>
+<br>
+<button id="clickme" onclick="doSomething()">click me</button>
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dicta eveniet iusto laudantium nemo nesciunt,
+    obcaecati odio reiciendis veritatis voluptates.
+</p>
+<p id="paragraph2">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur corporis distinctio error
+    exercitationem explicabo id, inventore natus nesciunt nostrum, nulla omnis quam quis, quos ratione sunt tempore
+    temporibus vel?
+</p>
+
+<script>
+    function doSomething() {
+        const el = document.getElementById('paragraph2');
+        el.style.color = 'blue';
+    }
+
+</script>
+</body>
+</html>

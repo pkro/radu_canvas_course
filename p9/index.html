@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas"
+        style="background-color: silver; border: solid"
+        width="400" height="400">
+</canvas>
+
+<script>
+    const s1 = new Audio("sounds/s1.mp3");
+s1.preservesPitch = false;
+
+    document.addEventListener('keydown', (info) => {
+        s1.currentTime=0; // reset to start
+        for (let key = 1; key <= 5; key++) {
+            if(info.code === 'Digit'+key) {
+                s1.playbackRate = 1.0 + ((key-1) * 0.2);
+                s1.play();
+
+            }
+        }
+
+    });
+
+
+</script>
+</body>
+</html>
